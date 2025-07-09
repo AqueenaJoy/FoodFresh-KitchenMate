@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes - FoodFresh</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% if current_theme == 'dark' %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='dark.css') }}">
+    {% endif %}
+</head>
+<body class="{{ current_theme }}">
+    <header>
+        <h1>Suggested Recipes</h1>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/inventory">Inventory</a>
+            <a href="/notifications">Notifications</a>
+            <a href="/recipes">Recipes</a>
+            <a href="/settings">Settings</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Recipes Based on Expiring Items🥗</h2>
+
+        {% if recipes %}
+            <ul>
+                {% for recipe in recipes %}
+                    <li>
+                        <span class="recipe-name">{{ recipe['name'] }}</span> - Ingredients: 
+                        <span class="ingredients">{{ recipe['ingredients'] | join(', ') }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No recipes found for the expiring items.</p>
+        {% endif %}
+
+        <br>
+        <a href="{{ url_for('home') }}" class="back-button">← Back to Home</a>
+
+    </main>
+</body>
+</html>

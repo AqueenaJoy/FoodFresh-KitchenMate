@@ -1,0 +1,23 @@
+
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+header {
+  background: #1e1e1e;
+}
+nav a {
+  color: #90ee90;
+}
+table, th, td {
+  border-color: #555;
+}
+input, button, select {
+  background: #222;
+  color: white;
+  border: 1px solid #555;
+}
+.card, .recipe {
+  background: #1c1c1c;
+  border: 1px solid #444;
+}

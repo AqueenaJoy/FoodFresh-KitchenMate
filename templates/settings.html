@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% if current_theme == 'dark' %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='dark.css') }}">
+    {% endif %}
+    <title>Food Fresh - Settings</title>
+</head>
+<body class="{{ current_theme }}">
+    <div class="settings-container">
+        <h1>Settings ⚙️</h1>
+
+      
+        <form method="POST" action="{{ url_for('settings') }}">
+            <label for="theme">Select Theme</label>
+            <select name="theme" id="theme">
+                <option value="light" {% if current_theme == 'light' %}selected{% endif %}>Light</option>
+                <option value="dark" {% if current_theme == 'dark' %}selected{% endif %}>Dark</option>
+            </select>
+        
+            <br><br>
+            <button type="submit">Save Settings</button>
+        </form>
+
+        <!-- Help Section -->
+        <div class="help-section">
+            <p>Need help? <a href="mailto:24aqueenamca@gmail.com">Contact Support</a></p>
+        </div>
+
+        <br>
+        <a href="{{ url_for('home') }}" class="back-button">← Back to Home</a>
+    </div>
+</body>
+</html>

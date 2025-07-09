@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% if current_theme == 'dark' %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='dark.css') }}">
+    {% endif %}
+    <title>Food Fresh - Inventory</title>
+</head>
+<body class="{{ current_theme }}">
+    <header>
+        <h1>Inventory</h1>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/inventory">Inventory</a>
+            <a href="/notifications">Notifications</a>
+            <a href="/recipes">Recipes</a>
+            <a href="/settings">Settings</a>
+        </nav>
+    </header>
+    <div class="inventory-container">
+       
+
+        <!-- Add Item Form -->
+        <form method="POST" action="{{ url_for('inventory') }}">
+            <input type="text" name="item_name" placeholder="Item Name" required>
+            <input type="date" name="expiry_date" required>
+            <button type="submit">Add Item</button>
+        </form>
+
+        <!-- Inventory Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Expiry Date</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item[1] }}</td>
+                    <td>{{ item[2] }}</td>
+                    <td><a href="{{ url_for('delete', item_id=item[0]) }}">❌</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Back to Home Link -->
+        <br>
+        <a href="{{ url_for('home') }}" class="back-button">← Back to Home</a>
+
+    </div>
+</body>
+</html>

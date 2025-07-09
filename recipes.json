@@ -1,0 +1,29 @@
+
+[
+  {
+    "name": "Tomato Pasta",
+    "ingredients": ["tomato", "pasta", "onion"],
+    "instructions": "Boil pasta. Saute tomato and onion. Mix and serve."
+  },
+  {
+    "name": "Egg Fried Rice",
+    "ingredients": ["egg", "rice", "onion"],
+    "instructions": "Fry egg and onion. Add rice and stir-fry."
+  },
+  {
+    "name": "Banana Smoothie",
+    "ingredients": ["banana", "milk", "honey"],
+    "instructions": "Blend all ingredients and serve chilled."
+  }
+  ,
+  {
+      "name": "Tomato Soup",
+      "ingredients": ["tomato", "onion", "garlic"]
+    },
+    {
+      "name": "Vegetable Stir Fry",
+      "ingredients": ["carrot", "broccoli", "onion"]
+    }
+  ]
+  
+

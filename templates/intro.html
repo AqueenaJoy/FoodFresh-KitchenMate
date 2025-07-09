@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to FoodFresh – KitchenMate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% if current_theme == 'dark' %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='dark.css') }}">
+    {% endif %}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #a8f7a4fb, #4da4ac);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+            text-align: center;
+        }
+
+        .intro-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.71);
+        }
+
+        .intro-container h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .intro-container p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .enter-button {
+            padding: 15px 30px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #394e3f;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .enter-button:hover {
+            background-color: #145a14;
+        }
+    </style>
+</head>
+<body>
+    <div class="intro-container">
+        <h1>FoodFresh – KitchenMate</h1>
+        <p>Your Smart Kitchen Expiry Tracker</p>
+        <a href="{{ url_for('home') }}" class="enter-button">Enter Kitchen</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Fresh - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% if current_theme == 'dark' %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='dark.css') }}">
+    {% endif %}
+</head>
+<body class="{{ current_theme }}">
+    <header>
+        <h1>Welcome to Food Fresh</h1>
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/inventory">Inventory</a>
+            <a href="/notifications">Notifications</a>
+            <a href="/recipes">Recipes</a>
+            <a href="/settings">Settings</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Your go-to app for managing food expiry!</h2>
+
+        <div class="stats">
+            <div class="stat">
+                <h3>Total Items</h3>
+                <p class="number">{{ total }}</p>
+            </div>
+            <div class="stat">
+                <h3>Expiring Soon</h3>
+                <p class="number">{{ expiring }}</p>
+            </div>
+            <div class="stat">
+                <h3>Expired Items</h3>
+                <p class="number">{{ expired }}</p>
+            </div>
+        </div>
+        
+        <canvas id="statsChart" width="400" height="100"></canvas>
+    </main>
+    <script></script>
+   
+    
+    </script>
+</body>
+</html>
